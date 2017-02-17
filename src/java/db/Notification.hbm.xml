@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2017 10:08:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="db.Notification" table="notification" catalog="festivals" optimistic-lock="version">
+        <id name="idNotification" type="java.lang.Long">
+            <column name="idNotification" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="appuser" class="db.Appuser" fetch="select">
+            <column name="idUser" not-null="true" />
+        </many-to-one>
+        <property name="message" type="string">
+            <column name="message" length="65535" not-null="true" />
+        </property>
+        <property name="seen" type="boolean">
+            <column name="seen" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

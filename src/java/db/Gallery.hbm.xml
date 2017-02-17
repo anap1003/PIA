@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2017 10:08:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="db.Gallery" table="gallery" catalog="festivals" optimistic-lock="version">
+        <id name="idItem" type="java.lang.Long">
+            <column name="idItem" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="festival" class="db.Festival" fetch="select">
+            <column name="idFestival" not-null="true" />
+        </many-to-one>
+        <property name="path" type="string">
+            <column name="path" length="511" not-null="true" />
+        </property>
+        <property name="type" type="int">
+            <column name="type" not-null="true" />
+        </property>
+        <property name="isApproved" type="boolean">
+            <column name="isApproved" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

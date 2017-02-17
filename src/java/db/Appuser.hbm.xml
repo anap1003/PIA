@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2017 10:08:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="db.Appuser" table="appuser" catalog="festivals" optimistic-lock="version">
+        <id name="idUser" type="java.lang.Long">
+            <column name="idUser" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="surname" type="string">
+            <column name="surname" length="45" not-null="true" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" not-null="true" />
+        </property>
+        <property name="phoneNum" type="string">
+            <column name="phoneNum" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="isAdmin" type="boolean">
+            <column name="isAdmin" not-null="true" />
+        </property>
+        <property name="isApproved" type="boolean">
+            <column name="isApproved" not-null="true" />
+        </property>
+        <property name="lastLogin" type="timestamp">
+            <column name="lastLogin" length="19" not-null="true" />
+        </property>
+        <property name="warnings" type="int">
+            <column name="warnings" not-null="true" />
+        </property>
+        <set name="tickets" table="ticket" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idUser" not-null="true" />
+            </key>
+            <one-to-many class="db.Ticket" />
+        </set>
+        <set name="notifications" table="notification" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idUser" not-null="true" />
+            </key>
+            <one-to-many class="db.Notification" />
+        </set>
+        <set name="reviews" table="review" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idUser" not-null="true" />
+            </key>
+            <one-to-many class="db.Review" />
+        </set>
+    </class>
+</hibernate-mapping>

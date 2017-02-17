@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:b="http://bootsfaces.net/ui">
+
+    <h:form styleClass="nav navbar-form">
+        <b:navBar inverse="true" fixed="top" fluid="true">
+            <b:navCommandLink action="#{navigate.goToHome()}" value="TicketGrabber" styleClass="navbar-brand navbar-brand-text"/>
+            <div class="form-group navbar-right">
+                <b:navCommandLink action="#{login.logout()}" value="Sign out" styleClass="navbar-brand navbar-brand-text"/>
+            </div>
+        </b:navBar>  
+    </h:form>
+</ui:composition>
+

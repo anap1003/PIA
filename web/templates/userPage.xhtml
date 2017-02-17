@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="contentForm">
+        <p:growl id="message"/>
+        <b:column styleClass="main">
+            <h3>Welcome #{login.loggedInUser.name}</h3>
+            <hr/>
+            <div class="form-group col-md-3">
+                <b:inputText value="#{populate.name}" label="Name"/>
+            </div>
+            <div class="form-group col-md-3">
+                <b:inputText value="#{populate.location}" label="Location"/>
+            </div>
+            <div class="form-group col-md-1">
+                <label class="control-label">From</label> 
+                <div class="inputGroupContainer">
+                    <div class="input-group col-md-12">
+                        <b:datepicker value="#{populate.dateFrom}"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-1">
+                <label class="control-label">To</label>
+                <div class="inputGroupContainer">
+                    <div class="input-group col-md-12">
+                        <b:datepicker value="#{populate.dateTo}"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <b:inputText value="#{populate.artist}" label="Artist"/>
+            </div>
+            <div class="form-group col-md-3">
+                <p:commandButton value="Search" update=":contentForm" action="#{populate.refreshFestivals}"/>
+            </div>
+            <div class="col-md-12">
+                <b:dataTable value="#{populate.festivals}" var="festival" searching="false" paginated="true" >
+                    <b:dataTableColumn value="#{festival.name}" label="Name" orderable="false" />
+                    <b:dataTableColumn value="#{festival.location}" label="Location" orderable="false" />
+                    <b:dataTableColumn value="#{festival.dateStart}" label="Start date" orderable="false" />
+                    <b:dataTableColumn value="#{festival.dateEnd}" label="End date" orderable="false" />
+                    <b:dataTableColumn label="Details" orderable="false">
+                        <h:commandButton id="submit" value="Show details" action="#{festivalDetail.showDetail(festival.idFestival)}">
+                            <f:param name="id" value="#{festival.idFestival}" />
+                        </h:commandButton>
+                    </b:dataTableColumn>
+                </b:dataTable>
+            </div>
+
+        </b:column>
+    </h:form>
+</ui:composition>
+

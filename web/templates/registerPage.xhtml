@@ -1,0 +1,121 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:b="http://bootsfaces.net/ui">
+    <h:form styleClass="well form-horizontal" id="contact_form">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Register</legend>
+
+            <!-- Text input-->
+            <p:messages id="messages" showDetail="true" autoUpdate="true">
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Username</label> 
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <p:inputText value="#{register.username}" class="form-control" required="true" requiredMessage="You have to choose a username.">
+                                <f:facet name="prepend">
+                                    <b:icon name="user"/>
+                                </f:facet>
+                            </p:inputText>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Password</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <p:password value="#{register.password}" match="confirm" class="form-control" required="true" requiredMessage="You have to choose a password.">
+                                <f:facet name="prepend">
+                                    <b:icon name="lock"/>
+                                </f:facet>
+                            </p:password>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Password #2</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <p:password id="confirm" value="#{register.passrepeat}" class="form-control" required="true" requiredMessage="You have to repeat your password.">
+                                <f:facet name="prepend">
+                                    <b:icon name="lock"/>
+                                </f:facet>
+                            </p:password>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">First Name</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <p:inputText value="#{register.name}" class="form-control" required="true" requiredMessage="You have to enter your first name.">
+                                <f:facet name="prepend">
+                                    <b:icon name="user"/>
+                                </f:facet>
+                            </p:inputText>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Last Name</label> 
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <p:inputText value="#{register.surname}" class="form-control" required="true" requiredMessage="You have to enter your last name.">
+                                <f:facet name="prepend">
+                                    <b:icon name="user"/>
+                                </f:facet>
+                            </p:inputText>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Phone #</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <p:inputText value="#{register.phoneNum}" class="form-control" required="true" requiredMessage="You have to enter your phone number.">
+                                <f:facet name="prepend">
+                                    <b:icon name="earphone"/>
+                                </f:facet>
+                            </p:inputText>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-mail</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <p:inputText value="#{register.email}" class="form-control" required="true" requiredMessage="You have to enter your e-mail address.">
+                                <f:facet name="prepend">
+                                    <b:icon name="envelope"/>
+                                </f:facet>
+                            </p:inputText>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <h:commandButton action="#{register.register()}" value="Register" class="btn btn-lg btn-block btn-primary"/>
+                    </div>
+                </div>
+            </p:messages>
+        </fieldset>
+    </h:form>
+</ui:composition>

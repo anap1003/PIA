@@ -1,0 +1,178 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <div class="col-md-9 col-sm-10 main">
+        <h:form id="contentForm">
+            <p:growl id="message" for="message" showDetail="true"/>
+            <p:commandButton update=":contentForm" action="#{navigate.test}" value="Test"/>
+        </h:form>
+    </div>
+    <!--
+        <h3>Festival edit page</h3>
+        <div class="form-group col-md-5">
+            <label class="control-label" >Name</label> 
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <p:inputText value="#{import.festival.name}" class="form-control" disabled="true">
+                        <f:facet name="prepend">
+                            <b:icon name="user"/>
+                        </f:facet>
+                    </p:inputText>
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group col-md-5">
+            <label class="control-label" >Location</label> 
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <p:inputText value="#{import.festival.location}" class="form-control" disabled="true">
+                        <f:facet name="prepend">
+                            <b:icon name="user"/>
+                        </f:facet>
+                    </p:inputText>
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group col-md-5">
+            <label class="control-label" >Start date</label> 
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <p:inputText value="#{import.festival.dateStart}" class="form-control" disabled="true">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </p:inputText>
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group col-md-5">
+            <label class="control-label" >End date</label> 
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <p:inputText value="#{import.festival.dateEnd}" class="form-control" disabled="true">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </p:inputText>
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group col-md-5">
+            <label class="control-label" >Max # of tickets sold per day</label> 
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <p:inputText value="#{import.festival.capacityPerDay}" class="form-control" disabled="true">
+                        <f:facet name="prepend">
+                            <b:icon name="user"/>
+                        </f:facet>
+                    </p:inputText>
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group col-md-5">
+            <label class="control-label" >Max # of tickets sold per user</label> 
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <p:inputText value="#{import.festival.maxTicketsPerUser}" class="form-control" disabled="true">
+                        <f:facet name="prepend">
+                            <b:icon name="user"/>
+                        </f:facet>
+                    </p:inputText>
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group col-md-5">
+            <label class="control-label" >Packet tickets price</label> 
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <p:inputText value="#{import.festival.packetPrice}" class="form-control" disabled="true">
+                        <f:facet name="prepend">
+                            <b:icon name="user"/>
+                        </f:facet>
+                    </p:inputText>
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group col-md-5">
+            <label class="control-label" >Single tickets price</label> 
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <p:inputText value="#{import.festival.dayPrice}" class="form-control" disabled="true">
+                        <f:facet name="prepend">
+                            <b:icon name="user"/>
+                        </f:facet>
+                    </p:inputText>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-md-10">
+            <h4>Performances info</h4>
+        </div>
+    
+        <div class="form-group col-md-10">
+            <b:dataTable value="#{import.performances}" var="performance" searching="false">
+                <h:column>
+                    <f:facet name="header">Artist</f:facet>
+                    <h:outputText value="#{performance.artist}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Start date</f:facet>
+                    <h:outputText value="#{performance.dateStart}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">End date</f:facet>
+                    <h:outputText value="#{performance.dateEnd}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Start time</f:facet>
+                    <h:outputText value="#{performance.timeStart}">
+                        <f:convertDateTime pattern="hh:mm:ss aaa"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">End time</f:facet>
+                    <h:outputText value="#{performance.timeEnd}">
+                        <f:convertDateTime pattern="hh:mm:ss aaa"/>
+                    </h:outputText>
+                </h:column>
+            </b:dataTable>
+        </div>
+    
+        <div class="col-md-5">
+            <p:galleria value="#{import.pictures}" panelWidth="400" panelHeight="300" var="picture" showCaption="false">
+                <p:graphicImage title="Festival pictures" value="#{galleryService.image}">
+                    <f:param name="filename" value="#{picture.path}" />
+                </p:graphicImage>
+            </p:galleria>
+        </div>
+    
+        <div class="col-md-5">
+            <h:panelGrid columns="1">
+                <p:repeat value="#{import.video}" var="v" offset="0" size="1" step="1" varStatus="#{null}">
+                    <p:media value="#{v.path}" player="flash">
+                        <f:param name="autoPlay" value="0"/>
+                    </p:media>
+                </p:repeat>
+            </h:panelGrid>
+        </div>   -->
+</ui:composition>

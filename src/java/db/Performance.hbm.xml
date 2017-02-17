@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2017 10:08:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="db.Performance" table="performance" catalog="festivals" optimistic-lock="version">
+        <id name="idPerformance" type="java.lang.Long">
+            <column name="idPerformance" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="festival" class="db.Festival" fetch="select">
+            <column name="idFestival" not-null="true" />
+        </many-to-one>
+        <property name="artist" type="string">
+            <column name="artist" length="45" not-null="true" />
+        </property>
+        <property name="dateStart" type="date">
+            <column name="dateStart" length="10" not-null="true" />
+        </property>
+        <property name="dateEnd" type="date">
+            <column name="dateEnd" length="10" not-null="true" />
+        </property>
+        <property name="timeStart" type="time">
+            <column name="timeStart" length="8" not-null="true" />
+        </property>
+        <property name="timeEnd" type="time">
+            <column name="timeEnd" length="8" not-null="true" />
+        </property>
+        <property name="canceled" type="boolean">
+            <column name="canceled" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

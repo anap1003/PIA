@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2017 10:08:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="db.Festival" table="festival" catalog="festivals" optimistic-lock="version">
+        <id name="idFestival" type="java.lang.Long">
+            <column name="idFestival" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="dateStart" type="date">
+            <column name="dateStart" length="10" not-null="true" />
+        </property>
+        <property name="dateEnd" type="date">
+            <column name="dateEnd" length="10" not-null="true" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" length="45" not-null="true" />
+        </property>
+        <property name="details" type="string">
+            <column name="details" length="65535" not-null="true" />
+        </property>
+        <property name="capacityPerDay" type="int">
+            <column name="capacityPerDay" not-null="true" />
+        </property>
+        <property name="maxTicketsPerUser" type="int">
+            <column name="maxTicketsPerUser" not-null="true" />
+        </property>
+        <property name="packetPrice" type="int">
+            <column name="packetPrice" not-null="true" />
+        </property>
+        <property name="dayPrice" type="int">
+            <column name="dayPrice" not-null="true" />
+        </property>
+        <property name="views" type="long">
+            <column name="views" not-null="true" />
+        </property>
+        <property name="ticketsBought" type="long">
+            <column name="ticketsBought" not-null="true" />
+        </property>
+        <property name="facebook" type="string">
+            <column name="facebook" length="100" />
+        </property>
+        <property name="twitter" type="string">
+            <column name="twitter" length="100" />
+        </property>
+        <property name="instagram" type="string">
+            <column name="instagram" length="100" />
+        </property>
+        <property name="youtube" type="string">
+            <column name="youtube" length="100" />
+        </property>
+        <property name="canceled" type="boolean">
+            <column name="canceled" not-null="true" />
+        </property>
+        <set name="reviews" table="review" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idFestival" not-null="true" />
+            </key>
+            <one-to-many class="db.Review" />
+        </set>
+        <set name="performances" table="performance" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idFestival" not-null="true" />
+            </key>
+            <one-to-many class="db.Performance" />
+        </set>
+        <set name="galleries" table="gallery" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idFestival" not-null="true" />
+            </key>
+            <one-to-many class="db.Gallery" />
+        </set>
+        <set name="tickets" table="ticket" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idFestival" not-null="true" />
+            </key>
+            <one-to-many class="db.Ticket" />
+        </set>
+    </class>
+</hibernate-mapping>

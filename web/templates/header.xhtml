@@ -1,0 +1,12 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:b="http://bootsfaces.net/ui">
+
+    <b:form styleClass="nav navbar-form">
+        <b:navBar inverse="true" fixed="top" fluid="true">
+            <b:navCommandLink action="#{navigate.goToHome()}" value="TicketGrabber" styleClass="navbar-brand navbar-brand-text"/>
+            <b:navCommandLink value="Register" action="#{navigate.goToRegister()}" styleClass="navbar-brand navbar-brand-text navbar-right"/>
+        </b:navBar>
+    </b:form>
+</ui:composition>

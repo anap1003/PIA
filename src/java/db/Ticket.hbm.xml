@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2017 10:08:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="db.Ticket" table="ticket" catalog="festivals" optimistic-lock="version">
+        <id name="idTicket" type="java.lang.Long">
+            <column name="idTicket" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="appuser" class="db.Appuser" fetch="select">
+            <column name="idUser" not-null="true" />
+        </many-to-one>
+        <many-to-one name="festival" class="db.Festival" fetch="select">
+            <column name="idFestival" not-null="true" />
+        </many-to-one>
+        <property name="dateFor" type="date">
+            <column name="dateFor" length="10" />
+        </property>
+        <property name="amount" type="int">
+            <column name="amount" not-null="true" />
+        </property>
+        <property name="reservedAt" type="timestamp">
+            <column name="reservedAt" length="19" not-null="true" />
+        </property>
+        <property name="bought" type="boolean">
+            <column name="bought" not-null="true" />
+        </property>
+        <property name="expired" type="boolean">
+            <column name="expired" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

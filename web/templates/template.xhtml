@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+            <title>Grab your tickets!</title>
+        </f:facet>
+
+        <f:facet name="middle">
+            <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+
+            <h:outputStylesheet name="css/dashboard.css" />
+
+            <style type="text/css">
+                .ui-growl {
+                    z-index: 999999 !important;
+                }
+            </style>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+
+            <h:outputScript name="bootstrap/js/bootstrap.js" />
+        </f:facet>
+
+        <f:facet name="last">
+            <h:outputStylesheet name="css/font-awesome.css" />
+        </f:facet>
+
+    </h:head>
+
+    <h:body>
+        <div id="header" class="navbar navbar-inverse navbar-fixed-top">
+            <ui:insert name="header">This is a header.</ui:insert>
+        </div>
+        <div class="container-fluid">
+            <div id="leftSidebar" class="col-md-2 col-sm-3">
+                <ui:insert name="leftSidebar">This is the left sidebar.</ui:insert>
+            </div>
+            <div id="page" class="col-md-10 col-sm-9">
+                <ui:insert name="page">This is the main content.</ui:insert>
+            </div>
+        </div>
+        <!--<div id="leftSidebar">
+            <ui:insert name="leftSidebar">This is the left sidebar.</ui:insert>
+        </div>
+        <div id="page">
+            <ui:insert name="page">This is the main content.</ui:insert>
+        </div>-->
+    </h:body>
+</html>
